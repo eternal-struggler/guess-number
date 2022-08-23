@@ -21,17 +21,20 @@ function showLoseMessage() {
   scoreElement.textContent = 0;
 }
 
+// decreaseScore decreases score value and sets this value to scoreElement
 function decreaseScore() {
   score--;
   scoreElement.textContent = score;
 }
 
+// setHighScore sets highscore value
 function setHighScore() {
   if (score > +highScore.textContent) {
     highScore.textContent = score;
   }
 }
 
+// resetAll resets all variables to default
 function resetAll() {
   secretNumber = Math.trunc(Math.random() * 10 + 1);
   score = 20;
@@ -47,6 +50,7 @@ function resetAll() {
 
 checkBtn.addEventListener('click', () => {
   switch (true) {
+    // When no number  
     case !guess.value:
       displayMessage('⛔ No number!');
       break;
@@ -76,4 +80,5 @@ checkBtn.addEventListener('click', () => {
   }
 });
 
+// Resets a game
 againBtn.addEventListener('click', resetAll);
